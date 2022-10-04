@@ -53,4 +53,3 @@ end
 #     branch: '0-10-stable'
 gem "active_model_serializers", "~> 0.10.13"
 gem "hirb"
-gem 'activerecord-reset-pk-sequence', '~> 0.2.0'

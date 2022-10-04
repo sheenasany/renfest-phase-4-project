@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
     skip_before_action :authorize, only: :create
 
     def create
@@ -12,7 +12,7 @@ class SessionController < ApplicationController
     end
 
     def destroy
-        session.destroy :user_id
+        session.delete :user_id
         head :no_content
     end
 end

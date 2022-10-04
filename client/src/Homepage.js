@@ -1,4 +1,6 @@
+
 function Homepage(){
+
     return (
         <div className="container">
             <h2>📯📜All ye, All ye! Hail! And welcome to your Renaissance Faire Planner! 

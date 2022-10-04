@@ -1,44 +1,40 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 function Signup(){
-    const [users, setUsers] = useState([])
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-        avatar_url: ""
-    })
-
-    const addNewUser = (newUser) => {
-        setUsers([...users, newUser])
-    }
+    
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [avatarUrl, setAvatarUrl] = useState("")
 
     const handleForm = (e) => {
         e.preventDefault();
+
+        let userData = {
+            username: username,
+            password: password,
+            avatar_url: avatarUrl
+        }
+
         fetch('/signup', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(userData)
         })
         .then(res => res.json())
-        .then(addNewUser(formData))
+        .then(console.log(userData))
 
-        setFormData({
-            username: "",
-            password: "",
-            avatar_url: ""
-        });
+        setUsername("")
+        setPassword("")
+        setAvatarUrl("")
+
     }
 
-    const handleChange = (e) => {
-       setFormData(e.target.value)
-}
     return(
         <div className="form">
-            <div className="row">
-                <form className="form" onSubmit={handleForm}>
-                    <div className="form-group">
+                <form className="form-group" onSubmit={handleForm}>
                         <label htmlFor="username">Signup!</label>
                         <br/>
                         <input
@@ -46,29 +42,37 @@ function Signup(){
                             type="text"
                             name="username"
                             placeholder="Username"
-                            value={formData.username}
-                            onChange={handleChange}
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
+                        <br/>
+                        <label htmlFor="username">Enter a Username</label>
+                        <br/>
                         <input 
                             className="password-box"
                             type="password"
                             name="password"
                             placeholder="Password"
-                            value={formData.password}
-                            onChange={handleChange}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
+                        <br/>
+                        <label htmlFor="username">Enter a Password</label>
+                        <br/>
                         <input
                             className="avatar-box"
                             type="text"
                             name="avatar_url"
                             placeholder="Avatar URL"
-                            value={formData.avatar_url}
-                            onChange={handleChange}
+                            value={avatarUrl}
+                            onChange={(e) => setAvatarUrl(e.target.value)}
                         />
-                        <button type="submit" name="save" value="submit" className="submit-btn">Submit</button>
-                    </div>
+                        <br/>
+                        <button type="submit" name="save" value="submit" className="submit-btn">Create a New User</button>
                 </form>
-            </div>
+                <div>
+                    <ul>Already have an account? <Link to='/login'>Login here!</Link></ul>
+                </div>
             </div>
     )
 }
