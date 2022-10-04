@@ -1,0 +1,2 @@
+class FairesController < ApplicationController
+end
