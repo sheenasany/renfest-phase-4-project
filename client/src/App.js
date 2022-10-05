@@ -9,6 +9,15 @@ import FaireList from "./FaireList";
 function App() {
 
   const [user, setUser] = useState(null)
+  const [faires, setFaires] = useState([])
+
+
+  useEffect(() => {
+    fetch('/faires')
+        .then(res => res.json())
+        .then(data => setFaires(data)
+        )
+    }, [])
 
       // if(!user) return <Login />
 
@@ -27,7 +36,7 @@ function App() {
           <Login setUser={setUser} />
         </Route>
         <Route exact path="/faire_list">
-          <FaireList />
+          <FaireList faires={faires} setFaires={setFaires} />
         </Route>
       </Switch>
     </div>

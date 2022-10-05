@@ -1,11 +1,13 @@
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
-function Signup(){
+function Signup({ user }){
     
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [avatarUrl, setAvatarUrl] = useState("")
+
+    let history = useHistory()
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -29,6 +31,8 @@ function Signup(){
         setUsername("")
         setPassword("")
         setAvatarUrl("")
+
+        if (user) history.push('/homepage')
 
     }
 
