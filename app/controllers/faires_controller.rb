@@ -4,6 +4,8 @@ skip_before_action :authorize, only: [:index, :show,]
 rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
     def index
+        # user = User.find_by(id: session[:user_id])
+        # faires = user.faires.uniq
         faires = Faire.all
         render json: faires, status: :ok
     end

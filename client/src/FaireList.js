@@ -9,11 +9,11 @@ function FaireList( { faires, setFaires }){
         /> </ul>)
 
     return(
-        <div>
             <div className="faire-list">
                 <h1>Behold! The Treasure Trove</h1>
+                <div className="image_grid">
                 {faireList}
-            </div>
+                </div>
             </div>
     )
 }
