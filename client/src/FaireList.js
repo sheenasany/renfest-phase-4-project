@@ -10,7 +10,10 @@ function FaireList( { faires, setFaires }){
 
     return(
             <div className="faire-list">
-                <h1>Behold! The Treasure Trove</h1>
+                <style>
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+</style>
+                <h1 className="titles">Behold! The Treasure Trove</h1>
                 <div className="image_grid">
                 {faireList}
                 </div>

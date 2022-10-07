@@ -38,8 +38,11 @@ function Signup({ user }){
 
     return(
         <div className="form">
+            <style>
+            @import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+            </style>
                 <form className="form-group" onSubmit={handleForm}>
-                        <label htmlFor="username">Signup!</label>
+                        <label className="titles">Signup!</label>
                         <br/>
                         <input
                             className="user-box"

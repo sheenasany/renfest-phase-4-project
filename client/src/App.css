@@ -2,6 +2,25 @@
   text-align: center;
 }
 
+.homepage, .titles {
+  font-family: 'Passions Conflict', cursive;
+  font-size: 60px;
+  font-weight: normal;
+}
+.navlinks {
+  display: inline-block;
+  margin: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.5em;
+  color: rgb(231, 205, 119);
+  border-bottom: 2px solid firebrick;
+  transition: 0.1s;
+}
+
+.navLink:hover {
+  color: rgb(177, 217, 238)
+  }  
+
 .links {
   display: block;
   padding: 14px 16px;

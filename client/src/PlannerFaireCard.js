@@ -5,6 +5,7 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
     const [newNotes, setNewNotes] = useState("")
     const [showForm, setShowForm] = useState(false)
     const [showUpdateForm, setShowUpdateForm] = useState(false)
+    const [updatedNotes, setUpdatedNotes] = useState("")
     // const [planners, setPlanners] = useState([])
 
     const handleForm = (e) => {
@@ -35,7 +36,7 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
         fetch(`/planners/${faire.id}`, {
             method: "DELETE"
         })
-        alert("Your note has been deleted at your request, your majesty!")
+       alert("Your note has been deleted at your request, your majesty!") 
         // handleDeletedPlanner(faire.id)
         window.location.reload()
 
@@ -48,16 +49,14 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
         "Content-Type": "application/json",
         },
          body: JSON.stringify({
-            notes: newNotes
+            notes: updatedNotes
          }),
      })
       .then((res) => res.json())
       .then(console.log);
-
-    //   setIsChecked(!isChecked)
+      alert("At your request, my liege, your note has been updated!")
+      window.location.reload()
     }
-
-
 
     const handleChange = (e) => {
         setNewNotes(e.target.value)
@@ -67,8 +66,12 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
         setShowForm(!showForm)
     }
 
-    const handleUpdateForm = () => {
+    const toggleUpdateForm = () => {
         setShowUpdateForm(!showUpdateForm)
+    }
+
+    const renderUpdatedNotes = (e) => {
+        setUpdatedNotes(e.target.value)
     }
     // debugger
     // console.log(faire)
@@ -86,12 +89,24 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
                 
                 <button onClick={handleShowForm}>{!showForm ? "Add A New Note" : "Hide Note Form"}</button>
 
-                <button onClick={handleUpdate}>{!showUpdateForm ?"Update Note" : "Hide Update"}</button>
-
+                <button onClick={toggleUpdateForm}>{!showUpdateForm ? "Update Note" : "Hide Update"}</button>
+                {showUpdateForm ?
+                <div>
+                <form onSubmit={handleUpdate}>
+                    <input 
+                        type="text" 
+                        name="updated_notes" 
+                        value={updatedNotes}
+                        onChange={renderUpdatedNotes}
+                    />
+                    <button type="submit">Submit Update</button>
+                </form>
+                </div> : null}
+        
                 <button onClick={handleDelete}>Delete Note</button>
                 
                 {showForm ?  
-                <form onSubmit={handleForm}>
+               <div> <form onSubmit={handleForm}>
                     <input 
                     type="text" 
                     name="notes" 
@@ -99,7 +114,7 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
                     onChange={handleChange} 
                     />
                     <button type="submit">Submit New Note</button>
-                </form> : null}
+                </form></div> : null}
                 </div>
             </div>
     )
