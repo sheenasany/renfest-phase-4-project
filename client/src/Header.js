@@ -38,7 +38,7 @@ const handleLogOut = () => {
             <NavLink exact className="navlinks" to='/planner'>
                 <h3>Planner</h3>
             </NavLink>
-        <button onClick={handleLogOut}>Logout</button> 
+        <button className="btn" onClick={handleLogOut}>Logout</button> 
         </div>)}
         </div>
     )

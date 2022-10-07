@@ -38,11 +38,11 @@ function Signup({ user }){
 
     return(
         <div className="form">
-            <style>
-            @import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
-            </style>
+           <style>
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+</style>
                 <form className="form-group" onSubmit={handleForm}>
-                        <label className="titles">Signup!</label>
+                        <label className="titles">Signup</label>
                         <br/>
                         <input
                             className="user-box"
@@ -75,7 +75,7 @@ function Signup({ user }){
                             onChange={(e) => setAvatarUrl(e.target.value)}
                         />
                         <br/>
-                        <button type="submit" name="save" value="submit" className="submit-btn">Create a New User</button>
+                        <button className="btn" type="submit" name="save" value="submit">Create a New User</button>
                 </form>
                 <div>
                     <ul>Already have an account? <Link to='/login'>Login here!</Link></ul>

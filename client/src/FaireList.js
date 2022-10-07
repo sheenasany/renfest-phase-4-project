@@ -11,7 +11,7 @@ function FaireList( { faires, setFaires }){
     return(
             <div className="faire-list">
                 <style>
-@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 </style>
                 <h1 className="titles">Behold! The Treasure Trove</h1>
                 <div className="image_grid">

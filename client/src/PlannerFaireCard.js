@@ -78,18 +78,19 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
 
     return(
         <div className="card">
-            <div className="card-body">
+            <div className="card_body">
                 <img className="item_image" src={faire.faire.logo} alt="logo" />
+                <div className="card_text">
                 <h4>{faire.faire.name}</h4>
                 <ul>Duration: {faire.faire.runtime}</ul>
                 <ul>Tickets: ${faire.faire.tix}</ul>
                 <ul>Location: {faire.faire.location}</ul>
                 <ul>Average Attendance: {faire.faire.average_attendance} 👲</ul>
                 <p><b>Notes: {faire.notes}</b></p>
-                
-                <button onClick={handleShowForm}>{!showForm ? "Add A New Note" : "Hide Note Form"}</button>
+                </div>
+                <button className="btn" onClick={handleShowForm}>{!showForm ? "Add A New Note" : "Hide Note Form"}</button>
 
-                <button onClick={toggleUpdateForm}>{!showUpdateForm ? "Update Note" : "Hide Update"}</button>
+                <button className="btn" onClick={toggleUpdateForm}>{!showUpdateForm ? "Update Note" : "Hide Update"}</button>
                 {showUpdateForm ?
                 <div>
                 <form onSubmit={handleUpdate}>
@@ -103,7 +104,7 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
                 </form>
                 </div> : null}
         
-                <button onClick={handleDelete}>Delete Note</button>
+                <button className="btn" onClick={handleDelete}>Delete Note</button>
                 
                 {showForm ?  
                <div> <form onSubmit={handleForm}>
@@ -113,7 +114,7 @@ function PlannerFaireCard({ faire, setFaires, user, notes, setNotes, setDataOfUs
                     value={newNotes} 
                     onChange={handleChange} 
                     />
-                    <button type="submit">Submit New Note</button>
+                    <button className="btn" type="submit">Submit New Note</button>
                 </form></div> : null}
                 </div>
             </div>

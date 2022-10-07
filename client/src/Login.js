@@ -26,7 +26,11 @@ function Login({ setUser }){
     }
 
     return(
-        <div>
+        <div className="sp_container">
+            <style>
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+</style>
+            <label className="titles">Login</label>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username"> Username</label>
                 <br/>
@@ -48,7 +52,7 @@ function Login({ setUser }){
                     onChange={(e) => setPassword(e.target.value)}
                  />  
                  <br/>
-                <button type="submit">Login</button>
+                <button className="btn" type="submit">Login</button>
             </form>
 
         </div>
