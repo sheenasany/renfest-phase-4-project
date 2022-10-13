@@ -8,6 +8,24 @@ function FaireList( { faires, setFaires }){
             faire={faire}
         /> </ul>)
 
+        // const handleUpdatedFavorite = (updatedFaire) => {
+        //     const updateFaire = faires.map(faire => faire.id === updatedFaire.id ? updatedFaire : faire)
+        //     setFaires(updateFaire)
+        //   }
+
+    // const handleFavorites = (faire) => {
+    //     fetch(`/faires/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({isFavorited: true}),
+    // })
+    //     .then(res => res.json())
+    //     .then(updatedFavorites => handleUpdatedFavorite(updatedFavorites)
+    // }
+
+
     return(
             <div className="faire-list">
                 <style>

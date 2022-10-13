@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_030354) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_073025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_030354) do
     t.integer "average_attendance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isFavorited"
   end
 
   create_table "planners", force: :cascade do |t|
