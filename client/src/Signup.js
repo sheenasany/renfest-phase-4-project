@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Link, useHistory} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 function Signup({ user }){
     
@@ -7,7 +7,7 @@ function Signup({ user }){
     const [password, setPassword] = useState("")
     const [avatarUrl, setAvatarUrl] = useState("")
 
-    let history = useHistory()
+    let navigate = useNavigate()
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -32,7 +32,8 @@ function Signup({ user }){
         setPassword("")
         setAvatarUrl("")
 
-        if (user) history.push('/homepage')
+        if (user)
+        navigate ('/')
 
     }
 

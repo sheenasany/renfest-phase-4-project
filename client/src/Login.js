@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, {useState} from "react"
 
 function Login({ setUser }){
@@ -6,7 +6,7 @@ function Login({ setUser }){
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")    
 
-    let history = useHistory();
+    let navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,7 +22,7 @@ function Login({ setUser }){
         .then(res => res.json())
         .then(user => setUser(user))
 
-        history.push('/homepage');
+        navigate('/');
     }
 
     return(
@@ -50,8 +50,8 @@ function Login({ setUser }){
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                 />  
-                 <br/>
+                />  
+                <br/>
                 <button className="btn" type="submit">Login</button>
             </form>
 

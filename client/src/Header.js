@@ -1,8 +1,8 @@
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 function Header({ user, setUser }) {
 
-    let history = useHistory('/homepage')
+    let navigate = useNavigate()
 
 const handleLogOut = () => {
     fetch('/logout', {
@@ -10,37 +10,27 @@ const handleLogOut = () => {
     })
     .then(setUser(null))
 
-    history.push('/homepage')
+    navigate('/')
 }
 
     return(
-        <div className="header">
-            {!user ? ( 
-           <div className="links"> <NavLink exact className="navlinks" to='/homepage'>
-                <h3>Homepage</h3>
-            </NavLink> 
-            <NavLink exact className="navlinks" to='/signup'>
-                <h3>Signup</h3>
-            </NavLink>  
-            <NavLink exact className="navlinks" to='/login'> 
-                <h3>Login</h3>
-            </NavLink> 
-            <NavLink exact className="navlinks" to='/faire_list'>
-                <h3>Faire List</h3>
-            </NavLink> </div>
-            ) : ( 
-            <div> <NavLink exact className="navlinks" to='/homepage'>
-                <h3>Homepage</h3>
-            </NavLink> 
-            <NavLink exact className="navlinks" to='/faire_list'>
-            <h3>Faire List</h3>
-            </NavLink>
-            <NavLink exact className="navlinks" to='/planner'>
-                <h3>Planner</h3>
-            </NavLink>
-        <button className="btn" onClick={handleLogOut}>Logout</button> 
-        </div>)}
-        </div>
+        <nav className="header">
+            {!user ? 
+                ( <div className="links">
+                    <Link className="navlinks" to='/'> Homepage </Link> 
+                    <Link className="navlinks" to='/signup'> Signup</Link> 
+                    <Link className="navlinks" to='/login'> Login </Link> 
+                    <Link className="navlinks" to='/faire_list'> Faire List </Link> 
+                </div>) 
+            : 
+                (<div className="links">
+                    <Link className="navlinks" to='/'> Homepage </Link> 
+                    <Link className="navlinks" to='/faire_list'> Faire List </Link>
+                    <Link className="navlinks" to='/planner'> Planner </Link>
+                    <button className="btn" onClick={handleLogOut}>Logout</button> 
+                </div>
+                )}
+        </nav>
     )
 };
 

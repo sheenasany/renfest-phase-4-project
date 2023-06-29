@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Homepage from "./Homepage";
 import Header from "./Header";
 import Signup from "./Signup";
@@ -38,23 +38,13 @@ function App() {
   return (
     <div className="App">
       <Header user={user} setUser={setUser}/>
-      <Switch>
-        <Route exact path="/homepage">
-          <Homepage />
-        </Route>
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
-        <Route exact path="/login">
-          <Login setUser={setUser} />
-        </Route>
-        <Route exact path="/faire_list">
-          <FaireList faires={faires} setFaires={setFaires} />
-        </Route>
-        <Route exact path="/planner">
-          <Planner user={user} notes={notes} setNotes={setNotes}/>
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login setUser={setUser} />}/>
+        <Route path="/faire_list" element={<FaireList faires={faires} setFaires={setFaires} />}/>
+        <Route path="/planner" element={<Planner user={user} notes={notes} setNotes={setNotes}/>}/>
+      </Routes>
     </div>
 );
 }
